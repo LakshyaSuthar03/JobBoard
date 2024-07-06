@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import axios from "axios";
+import JobStatus from "../components/JobStatus";
 const Applied = () => {
   const [applied, setApplied] = useState([]);
 
@@ -24,8 +25,8 @@ const Applied = () => {
                 <div>Job Title: {job.job.title}</div>
                 <div>
                   
+                  <JobStatus status = {job.status}/>
                   
-                  Statue : {job.status === "accepted" ? "Selected 🟢" : "Rejected 🔴" || job.status === "applied" ? "Pending 🟡":<></>}
                 </div>
               </div>
             );

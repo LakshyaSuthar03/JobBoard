@@ -47,7 +47,7 @@ const NavBar = () => {
                 );
               })}
             </ul>
-            <div className="mx-3">{userState.username}</div>
+            <div className="mx-3 bg-black text-white px-1 rounded-md">{userState.username}</div>
             <button className="border-black broder-solid border-2 px-2 rounded-md" onClick={handleLogout}>Logout</button>
           </div>
         </div>

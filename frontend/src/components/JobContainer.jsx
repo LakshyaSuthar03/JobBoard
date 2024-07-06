@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import Job from './Job'
-import data from "../../data.json"
 import axios from "axios"
 import { useDispatch } from 'react-redux'
 import { logout } from '../features/auth/authSlice'
