@@ -36,7 +36,7 @@ const NavBar = () => {
     <>
       <div className="w-full h-10 border-2 border-solid border-black fixed top-0 bg-white">
         <div className="flex h-full mx-5">
-          <div className="logo mr-auto align-middle my-auto">JOB BOARD</div>
+          <div className="logo mr-auto align-middle my-auto font-bold">JOB BOARD</div>
           <div className="navLinks my-auto flex">
             <ul className="flex gap-3">
               {navlinks.map((link,index) => {

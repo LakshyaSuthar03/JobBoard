@@ -27,18 +27,24 @@ function ApplyJob() {
   const handleGetJobDetails = () => {
     // Apply job logic
     if (!resume) return alert("Please upload resume");
-    
 
     const formData = new FormData();
     formData.append("id", id);
     formData.append("resume", resume);
 
     try {
-      axios.post(`http://localhost:3000/api/job/applyjob`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }).then((res) => { console.log(res);}).catch((err) => { console.log(err);} );
+      axios
+        .post(`http://localhost:3000/api/job/applyjob`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
       console.log(err);
     }
@@ -69,20 +75,32 @@ function ApplyJob() {
             <li>Salary: {job.salary}</li>
           </ul>
           <div className="mb-4">
-            <span className="font-bold">Employer:</span> {job.employer?.username}
+            <span className="font-bold">Employer:</span>{" "}
+            {job.employer?.username}
           </div>
-          <button
-            className="bg-blue-500 text-white px-4 py-2 rounded"
-            onClick={handleGetJobDetails}
-          >
-            Apply
-          </button>
-          <input
-            type="file"
-            accept="application/pdf"
-            name="resume"
-            onChange={handleResumeUpload}
-          />
+          <div className="flex">
+            <button
+              className="bg-blue-600 hover:bg-blue-700 mr-2 text-white font-semibold px-4 rounded-lg"
+              onClick={handleGetJobDetails}
+            >
+              Apply
+            </button>
+
+            <input
+              type="file"
+              class="block w-full text-sm cursor-pointer    text-gray-500
+        file:me-4 file:py-2 file:px-4
+        file:rounded-lg file:border-0
+        file:text-sm file:font-semibold
+        file:bg-blue-600 file:text-white
+        hover:file:bg-blue-700
+        file:disabled:opacity-50     
+      "
+              accept="application/pdf"
+              name="resume"
+              onChange={handleResumeUpload}
+            ></input>
+          </div>
         </div>
       </div>
     </div>
